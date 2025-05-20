@@ -189,6 +189,10 @@ input, select, textarea {
 		top: 0.5em;
 	}
 
+        p1 {
+		color: #92C3A5;
+	}
+
 	sup {
 		font-size: 0.8em;
 		position: relative;
