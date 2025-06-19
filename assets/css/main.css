@@ -56,6 +56,10 @@ blockquote, q {
 #planta:hover {filter: opacity(.5);
 }
 
+.logo {
+  margin-left: 20vw;  
+}
+
 
 table {
 	border-collapse: collapse;
@@ -191,6 +195,11 @@ input, select, textarea {
 
         p1 {
 		color: #92C3A5;
+		font-weight: normal;
+	}
+
+       p {
+	        font-weight: normal;
 	}
 
 	sup {
