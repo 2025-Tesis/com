@@ -683,7 +683,7 @@ body{
 
 .historia-right .data-card{
     width: 100%;
-    padding: 20px;
+    padding: 50px 75px;  /* TENÍA SOLO 20px */
     min-height: 170px;
 
     gap: 15px;
