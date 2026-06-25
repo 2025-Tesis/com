@@ -369,11 +369,11 @@ body{
 
     .hero-historia .hero-bg img{
     content: url("../img/historia movil.png");
-    margin-top: -40px; 
+   
     width: 100%;
     height: auto;
 
-    transform: translateY(420px);
+    transform: translateY(280px);
 
     display: block;
 }
