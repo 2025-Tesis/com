@@ -1,0 +1,1179 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* HEADER */
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px 60px 15px;
+    border-bottom: 4px solid #5B7554;
+}
+
+/* LOGO */
+.logo img{
+    width:360px;
+    max-width: 90%;
+    margin-bottom: 25px;
+	margin-top: 10px;
+
+}
+
+/* MENÚ */
+.menu{
+    display: flex;
+    gap: 130px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+/* LINKS */
+.menu a{
+    text-decoration: none;
+    color: #394F3F;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 0.3s;
+    letter-spacing: 0.6px;
+}
+
+/* HOVER */
+.menu a:hover{
+    color: #9A585F;
+}
+
+/* PÁGINA ACTIVA */
+.menu a.active{
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* LÍNEA VERDE */
+.menu a.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #5B7554;
+    border-radius: 50px;
+}
+
+/* DROPDOWN */
+.dropdown{
+    position: relative;
+}
+
+/* CONTENIDO DROPDOWN */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    min-width: 180px;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+/* LINKS SUBMENÚ */
+.dropdown-content a{
+    display: block;
+    padding: 10px 15px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* HOVER LINKS */
+.dropdown-content a:hover{
+    background-color: #f5f5f5;
+}
+
+/* MOSTRAR DROPDOWN */
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+/* Botón oculto en escritorio */
+.menu-toggle {
+    display: none;
+}
+
+/* RESPONSIVE HEADER & NAVIGATION */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        align-items: center;
+        position: relative; 
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 32px;
+        color: #5B7554;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2000;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .logo {
+        margin-left: 50px;
+    }
+	
+	.logo img {
+        width: 200px;
+        margin-bottom: 0;
+    }
+
+    .menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        width: 100%;
+        flex-direction: column;
+		align-items: center;
+        gap: 5px;
+        background: white;
+        padding: 20px 0;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        min-width: 240px;
+        z-index: 1500;
+    }
+
+    .menu.active {
+        display: flex !important;
+        background: white;
+        color: #5B7554;
+    }
+
+    .menu a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #5B7554 !important;
+        font-size: 14px;         /* Mucho más pequeño que los 22px de escritorio */
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        padding: 12px 20px;
+        text-decoration: none;
+    }
+	
+	.menu a.active {
+        padding-bottom: 8px;
+    }
+	
+	.menu a.active::after {
+        width: 60px;             /* Línea más corta */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+	
+	.dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        margin-top: 5px;
+        border-radius: 0;
+        min-width: auto;
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+	
+	 .dropdown-content a {
+        font-size: 12px;
+        padding: 8px 20px;
+        white-space: normal;
+        color: #6b8565 !important;
+    }
+	
+	/* ==========================
+   HOVER EN EL MENÚ (ESCRITORIO Y MÓVIL)
+   ========================== */
+
+/* Color al pasar el cursor sobre cualquier enlace del menú */
+.menu a:hover {
+    color: #7F9B77; /* Verde más claro */
+}
+
+/* Efecto suave */
+.menu a {
+    transition: color 0.3s ease;
+}
+
+/* ==========================
+   BOTÓN HAMBURGUESA ACTIVO
+   ========================== */
+
+/* Transición suave del ícono */
+.menu-toggle {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cuando el menú está abierto */
+.menu-toggle.active {
+    color: #7F9B77;   /* Cambia a un verde más claro */
+    transform: translateY(-50%) rotate(90deg); /* Giro opcional */
+}
+} 
+
+
+/*==================================
+HERO ALIANZAS
+===================================*/
+
+.hero-alianzas{
+
+    position: relative;
+
+    min-height: 820px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        to bottom,
+        #D9E2D8 55%,
+        #F3F6F2 85%,
+        #FFFFFF 10%
+    );
+
+}
+
+
+/* HOJAS SUPERIORES */
+
+.hero-hojas{
+
+    position: absolute;
+
+    top: 40px;
+
+    left: 0;
+
+    width: 340px;
+
+    z-index: 1;
+
+}
+
+.hero-hojas img{
+
+    width: 100%;
+
+    display: block;
+
+}
+
+
+/* CONTENIDO */
+
+.hero-content{
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 120px;
+	
+	transform: translateX(95px);
+
+}
+
+
+/* TEXTO */
+
+.hero-text{
+
+    max-width: 620px;
+
+    text-align: center;
+	
+	
+
+}
+
+.hero-text h1{
+
+    font-size: 6rem;
+
+    color: #5B7554;
+
+    line-height: 1;
+
+    margin-bottom: 22px;
+
+    position: relative;
+
+}
+
+.hero-text h1::after{
+
+    content:"";
+
+    position:absolute;
+
+    transform:translateX(98%);
+
+    bottom:-12px;
+
+    width:120px;
+
+    height:4px;
+
+    border-radius:50px;
+
+    background:#5B7554;
+
+}
+
+.hero-text p{
+
+    margin-top:35px;
+
+    font-size:1.3rem;
+
+    line-height:1.8;
+
+    color:#4E6A49;
+	
+	
+	
+
+}
+
+.hero-hojas{
+
+    animation: flotar 6s ease-in-out infinite;
+
+}
+
+/* HOJAS DERECHAS */
+
+.hero-hojas2{
+
+    position:absolute;
+
+    right:200px;
+
+    bottom:60px;
+
+    width:170px;
+
+    z-index:1;
+	animation: flotar 5s ease-in-out infinite;
+
+}
+
+.hero-hojas2 img{
+
+    width:100%;
+
+}
+
+
+
+/* ONDAS */
+
+.hero-ondas{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-65px;
+
+    width:100%;
+
+    z-index:0;
+
+}
+
+.hero-ondas img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+@keyframes flotar{
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+/* ==========================
+   HERO ALIANZAS MÓVIL
+========================== */
+
+@media (max-width:768px){
+
+.hero-alianzas{
+
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 140px;
+
+}
+
+/* Hojas superiores */
+
+.hero-hojas{
+
+    width:150px;
+    top:25px;
+    left:-15px;
+
+}
+
+/* Hojas inferiores */
+
+.hero-hojas2{
+
+    width:90px;
+    right:15px;
+    bottom:110px;
+
+}
+	
+
+/* Contenido */
+
+.hero-content{
+
+    padding-top:70px;
+	transform: translateX(0px);
+
+}
+
+/* Texto */
+
+.hero-text{
+
+    width:90%;
+    max-width:340px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+.hero-text h1{
+
+    font-size:4rem;
+	text-align: center 
+
+}
+
+.hero-text h1::after{
+
+    left:50%;
+    transform:translateX(-135%);
+    width:95px;
+
+}
+
+.hero-text p{
+
+    font-size:1rem;
+    line-height:1.7;
+	text-align: center !important;
+
+}
+
+/* Ondas */
+
+.hero-ondas{
+
+    bottom:-10px;
+
+}
+
+.hero-ondas img{
+
+    width:100%;
+}
+
+}
+
+/* ==========================
+   MAPA ALIANZAS MAPA
+========================== */
+
+.mapa-organizacion{
+
+    max-width: 1400px;
+
+    margin: 120px auto;
+
+    padding: 0 6%;
+
+    text-align: center;
+
+}
+
+/* TÍTULO */
+
+.titulo-seccion{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 75px;
+
+}
+
+.titulo-seccion h2{
+
+    font-size: 2.4rem;
+
+    font-weight: 700;
+
+    color: #5B7554;
+
+    margin: 0;
+
+}
+
+.titulo-seccion span{
+
+    width: 200px;
+
+    height: 3px;
+
+    background: #9A585F;
+
+    border-radius: 50px;
+
+}
+
+.mapa-organizacion img{
+
+    width: 100%;
+
+    max-width: 1300px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 40px auto 0;
+
+}
+
+/* ==========================
+        MAPA MÓVIL
+========================== */
+@media (max-width:768px){
+
+.mapa-organizacion{
+
+    margin:80px auto;
+
+}
+
+.mapa-organizacion img{
+
+    width:100%;
+
+}
+.titulo-seccion{
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+
+}
+
+.titulo-seccion h2{
+
+    font-size: 2rem;
+
+}
+
+.titulo-seccion span{
+
+    width: 100px;
+
+}
+}
+
+/* ==========================
+  BENEFICIOS Y REQUISITOS PC 
+========================== */
+
+.alianzas-beneficios{
+
+    max-width:1200px;
+
+    margin:100px auto;
+
+    padding:0 6%;
+
+}
+
+.beneficio{
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+    margin-bottom:70px;
+
+}
+
+.beneficio-img{
+    width: 420px;
+	
+}
+.beneficio-img{
+    margin-left:-80px;
+}
+
+.beneficio-img img{
+
+    width:100%;
+
+    display:block;
+
+}
+.reveal-left,
+.reveal-right{
+
+    opacity:0;
+
+    transition:1s ease;
+
+}
+
+.reveal-left{
+
+    transform:translateX(-80px);
+
+}
+
+.reveal-right{
+
+    transform:translateX(80px);
+
+}
+
+.reveal-left.active,
+.reveal-right.active{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+
+.beneficio-texto h2{
+
+    color:#42573F;
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.beneficio-texto ul{
+
+    padding-left:20px;
+
+    color:#42573F;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+.btn-formulario{
+
+    display:inline-block;
+
+    margin-top:50px;
+
+    padding:12px 28px;
+
+    background:#9A585F;
+
+    color:#fff;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.btn-formulario:hover{
+
+    background:#7d444b;
+
+}
+
+
+/* ==========================
+  BENEFICIOS Y REQUISITOS MOVIL 
+========================== */
+
+@media (max-width:768px){
+
+.alianzas-beneficios{
+
+    margin:80px auto;
+
+    padding:0 8%;
+
+}
+
+.beneficio{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+
+    margin-bottom:80px;
+
+}
+
+.beneficio-img{
+
+    width:280px;
+
+    margin:0 auto;
+
+    transform:none;
+
+}
+
+.beneficio-img img{
+
+    width:100%;
+
+    height:auto;
+
+}
+
+.beneficio-texto{
+
+    text-align:center;
+
+}
+
+.beneficio-texto h2{
+
+    font-size:1.8rem;
+
+    margin-bottom:18px;
+
+}
+
+.beneficio-texto ul{
+
+    text-align:left;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    padding-left:22px;
+
+}
+
+.btn-formulario{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+}
+
+}
+
+/* ==========================
+       COLABORADORES PC
+========================== */
+.colaboradores{
+
+    max-width:1400px;
+
+    margin:90px auto 120px;
+
+    padding:0 6%;
+
+    text-align:center;
+
+}
+
+.logos{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:40px 55px;
+
+    justify-items:center;
+
+    align-items:center;
+
+}
+
+.logos img{
+
+     max-width:120px;
+
+    max-height:80px;
+
+    width:auto;
+
+    height:auto;
+
+    transition:.3s;
+
+}
+
+.logo-item{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:90px;
+
+}
+
+.logo-item:last-child{
+
+    grid-column: 3;
+
+}
+
+.logos img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+       COLABORADORES MÓVIL
+========================== */
+
+@media (max-width:768px){
+
+.colaboradores{
+
+    margin:80px auto;
+
+    padding:0 8%;
+
+}
+
+.logos{
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px 20px;
+
+}
+
+.logo-item{
+
+    height:70px;
+
+}
+
+.logos img{
+
+    width:75px;
+
+    height:auto;
+
+}
+	.logo-item:last-child{
+
+    grid-column:auto;
+
+}
+
+}
+
+/* FOOTER STYLES */
+.footer-wave {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin-bottom: -80px;
+  transform: scaleY(-1);
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  background: #5B7554;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 45px 50px 25px;
+  font-family: Roboto, sans-serif;
+  padding-top: 100px;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+  gap: 30px;
+  flex: 1;
+}
+
+.footer-logo {
+  width: 100px;
+  height: auto;
+}
+
+.footer-info p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 2px 0;
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.footer-info i {
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 6px;
+}
+
+.footer-info span {
+    display: inline-block;
+    text-align: left;
+}
+
+.footer-right {
+  text-align: center;
+  margin-right: 60px;
+}
+
+.footer-message {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.footer-btn {
+  background: #3E5644;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.footer-btn:hover {
+  background: #ffffff;
+  color: #5B7554;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+/* FOOTER RESPONSIVE */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 25px 30px;
+  }
+
+  .footer-wave {
+    height: 50px;
+    margin-bottom: -40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 20px;
+    text-align: center;
+	  align-items: center;
+  }
+	
+	.footer-info {
+    display: inline-block;
+		text-align: left;
+		margin: 0 auto;
+		}
+
+  .footer-info p {
+    justify-content: flex-start;
+    text-align: left;
+	  margin: 6px 0;
+  }
+
+  .footer-right {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .footer-btn {
+    width: 220px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 90px;
+  }
+
+  .footer-message {
+    font-size: 16px;
+  }
+}
+/* MISIÓN Y VISIÓN IMAGENES Y TEXTO */
+
+@media (min-width: 769px) {
+
+    /* MISIÓN (imagen izquierda) */
+    .mv-row:not(.mv-row-reverse) img {
+        margin-left: -180px;
+    }
+
+    
+     .mv-row:not(.mv-row-reverse) .mv-text {
+        transform: translateX(130px);
+    }
+
+    /* VISIÓN (imagen derecha) */
+    .mv-row-reverse img {
+        margin-right: -150px;
+    }
+
+   
+    .mv-row-reverse .mv-text {
+     transform: translateX(-100px);
+    }
+}
+/* HOVER Y FEEDBACK TÁCTIL EN EL MENÚ MÓVIL */
+@media (max-width: 768px) {
+
+    /* Color al pasar el cursor (útil en tablets y algunos navegadores móviles) */
+    .menu a:hover,
+    .menu a:focus,
+    .menu a:active {
+        color: #7F9B77 !important;   /* Verde más claro */
+        background-color: #F3F7F1;   /* Fondo muy suave opcional */
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,979 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    font-family: 'Roboto', sans-serif;
+	background: #FFFFFF;
+}
+
+/* HEADER */
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px 60px 15px;
+    border-bottom: 4px solid #5B7554;
+}
+
+/* LOGO */
+.logo img{
+    width:360px;
+    max-width: 90%;
+    margin-bottom: 25px;
+	margin-top: 10px;
+
+}
+
+/* MENÚ */
+.menu{
+    display: flex;
+    gap: 130px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+/* LINKS */
+.menu a{
+    text-decoration: none;
+    color: #394F3F;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 0.3s;
+    letter-spacing: 0.6px;
+}
+
+/* HOVER */
+.menu a:hover{
+    color: #9A585F;
+}
+
+/* PÁGINA ACTIVA */
+.menu a.active{
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* LÍNEA VERDE */
+.menu a.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #5B7554;
+    border-radius: 50px;
+}
+
+/* DROPDOWN */
+.dropdown{
+    position: relative;
+}
+
+/* CONTENIDO DROPDOWN */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    min-width: 180px;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+/* LINKS SUBMENÚ */
+.dropdown-content a{
+    display: block;
+    padding: 10px 15px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* HOVER LINKS */
+.dropdown-content a:hover{
+    background-color: #f5f5f5;
+}
+
+/* MOSTRAR DROPDOWN */
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+/* Botón oculto en escritorio */
+.menu-toggle {
+    display: none;
+}
+
+/* RESPONSIVE HEADER & NAVIGATION */
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        align-items: center;
+        position: relative; 
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 32px;
+        color: #5B7554;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2000;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .logo {
+        margin-left: 50px;
+    }
+	
+	.logo img {
+        width: 200px;
+        margin-bottom: 0;
+    }
+
+    .menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        width: 100%;
+        flex-direction: column;
+		align-items: center;
+        gap: 5px;
+        background: white;
+        padding: 20px 0;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        min-width: 240px;
+        z-index: 1500;
+    }
+
+    .menu.active {
+        display: flex !important;
+        background: white;
+        color: #5B7554;
+    }
+
+    .menu a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #5B7554 !important;
+        font-size: 14px;         /* Mucho más pequeño que los 22px de escritorio */
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        padding: 12px 20px;
+        text-decoration: none;
+    }
+	
+	.menu a.active {
+        padding-bottom: 8px;
+    }
+	
+	.menu a.active::after {
+        width: 60px;             /* Línea más corta */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+	
+	.dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 0;
+        margin-top: 5px;
+        border-radius: 0;
+        min-width: auto;
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+	
+	 .dropdown-content a {
+        font-size: 12px;
+        padding: 8px 20px;
+        white-space: normal;
+        color: #6b8565 !important;
+    }
+	
+	/* ==========================
+   HOVER EN EL MENÚ (ESCRITORIO Y MÓVIL)
+   ========================== */
+
+/* Color al pasar el cursor sobre cualquier enlace del menú */
+.menu a:hover {
+    color: #7F9B77; /* Verde más claro */
+}
+
+/* Efecto suave */
+.menu a {
+    transition: color 0.3s ease;
+}
+
+/* ==========================
+   BOTÓN HAMBURGUESA ACTIVO
+   ========================== */
+
+/* Transición suave del ícono */
+.menu-toggle {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cuando el menú está abierto */
+.menu-toggle.active {
+    color: #7F9B77;   /* Cambia a un verde más claro */
+    transform: translateY(-50%) rotate(90deg); /* Giro opcional */
+}
+} 
+
+
+/* HERO DESKTOP */
+.hero-voluntariado{
+    position: relative;
+    background-color: #eef2eb;
+    padding: 80px 8%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* IMAGEN DECORATIVA DE FONDO */
+.hero-voluntariado .hero-bg{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 1;
+}
+
+.hero-voluntariado .hero-bg img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CONTENIDO */
+.hero-voluntariado .hero-content{
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* TEXTO */
+.hero-voluntariado .hero-text{
+    max-width: 520px;
+    margin-top: 100px;
+    margin-left: -205px;
+}
+
+.hero-voluntariado .hero-text h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+.hero-voluntariado .hero-text h1::after{
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: -5px;
+    width: 120px;
+    height: 4px;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+}
+
+.hero-voluntariado .hero-text p{
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.hero-hoja{
+
+    position:absolute;
+
+    right:70px;
+
+    bottom:-50px;
+
+    width:130px;
+
+    z-index:3;
+
+}
+
+.hero-hoja img{
+
+    width:100%;
+
+}
+
+/* HERO VOLUNTARIADO RESPONSIVE */
+
+
+@media (max-width: 768px){
+
+   .hero-voluntariado{
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+
+        line-height: 0;
+
+        min-height: unset;
+        height: auto;
+	   background: #8FA495;
+    }
+
+    /* IMAGEN */
+    .hero-voluntariado .hero-bg{
+        position: relative;
+        width: 100%;
+    }
+
+    .hero-voluntariado .hero-bg img{
+    content: url("../img/voluntariado-movil.png");
+
+    width: 100%;
+    height: auto;
+
+    transform: translateY(420px);
+
+    display: block;
+}
+
+    /* CONTENIDO */
+    .hero-voluntariado .hero-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 2;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding-top: 60px;
+    }
+
+    /* TEXTO */
+    .hero-voluntariado .hero-text{
+        width: 90%;
+        max-width: 340px;
+
+        margin: 0 auto !important;
+
+        padding: 0;
+
+        text-align: center;
+
+        transform: none !important;
+		
+    }
+
+    .hero-text h1,
+    .hero-text p{
+        margin-left: 0 !important;
+    }
+
+    .hero-voluntariado .hero-text h1{
+        font-size: 4.01rem;
+        line-height: 1.1;
+
+        color: #ffffff;
+
+        text-align: center;
+
+        margin-bottom: 20px;
+
+        position: relative;
+    }
+
+    /* LÍNEA VERDE */
+    .hero-text h1::after{
+        content: "";
+
+        display: block;
+
+        width: 110px;
+        height: 4px;
+
+        background-color: #ffffff;
+
+        border-radius: 50px;
+
+        margin: 18px 0 0 53px;
+    }
+
+    .hero-voluntariado .hero-text p{
+        font-size: 1rem;
+        line-height: 1.7;
+
+        color: #ffffff;
+
+        text-align: center;
+    }
+
+}
+
+
+/*================================= VOLUNTARIADO INFO ==================================*/ .voluntariado-info{ max-width:1400px; margin:110px auto; padding:0 6%; } .vol-row{ 
+	display:grid; 
+	grid-template-columns:420px 1fr; 
+	gap:90px; 
+	align-items:center; 
+	margin-bottom:120px;
+} 
+.vol-row.reverse{
+	grid-template-columns:1fr 420px; 
+}
+
+/* TITULOS */
+.vol-titulo{ 
+	display:flex; 
+	align-items:center;
+	gap:18px; 
+	margin-bottom:30px;
+} 
+ .vol-titulo img{
+	 width:55px; 
+}
+
+ .vol-titulo h2{ 
+	 color:#42573F;
+	 font-size:2.1rem;
+	 line-height:1.15; 
+} 
+
+ .vol-titulo span{ 
+	 display:block;
+	 width:65px;
+	 height:4px;
+	 background:#9A585F;
+	 border-radius:50px;
+	 margin-top:10px; 
+} 
+  /* FOTOS */ 
+ .foto{
+	 width:100%;
+	 display:block;
+}
+  /* ITEMS */ 
+ .vol-item{
+	 display:flex; 
+	 gap:20px;
+	 margin-bottom:22px; 
+	 align-items:flex-start;
+	 opacity:0;
+	 transform:translateX(60px); 
+	 transition:all .8s ease;
+} 
+  .vol-item.active{
+	  opacity:1;
+	  transform:translateX(0);
+} 
+  /* NUMEROS */ 
+  .numero{
+	  width:40px; 
+	  height:40px; 
+	  border-radius:50%; 
+	  background:#5B7554;
+	  color:#fff; 
+	  font-weight:700; 
+	  display:flex; 
+	  justify-content:center;
+	  align-items:center;
+	  flex-shrink:0; 
+	  transform:scale(.2);
+	  opacity:0;
+} 
+   /* TEXTO */ 
+  .vol-item p{
+	  line-height:1.65; 
+	  color:#42573F;
+	  font-size:1rem; 
+	  opacity:0; 
+	  transform:translateX(20px); 
+}
+
+  /* ========================== APARICIÓN DEL NÚMERO ========================== */ 
+  .vol-item.active .numero{ 
+	  animation:pop .45s ease forwards;
+ }
+  /* Retraso de cada círculo */ 
+  .vol-item:nth-child(1).active .icono-circulo{
+    animation-delay:.10s;
+}
+
+.vol-item:nth-child(2).active .icono-circulo{
+    animation-delay:.30s;
+}
+
+.vol-item:nth-child(3).active .icono-circulo{
+    animation-delay:.50s;
+}
+
+.vol-item:nth-child(4).active .icono-circulo{
+    animation-delay:.70s;
+}
+
+.vol-item:nth-child(5).active .icono-circulo{
+    animation-delay:.90s;
+}
+
+  /* ========================== TEXTO DESPUÉS DEL CÍRCULO ========================== */ 
+   .vol-item.active p{ animation:texto .5s ease forwards; 
+}
+   .vol-item:nth-child(1).active p{ 
+	   animation-delay:.25s;
+  }
+
+   .vol-item:nth-child(2).active p{
+	   animation-delay:.45s;
+   }
+   .vol-item:nth-child(3).active p{ 
+	   animation-delay:.65s; 
+   }
+
+   .vol-item:nth-child(4).active p{
+	   animation-delay:.85s; 
+   }
+
+   .vol-item:nth-child(5).active p{ 
+	   animation-delay:1.05s; 
+}
+   /* ========================== KEYFRAMES ========================== */
+   @keyframes pop{ 0%{ 
+	   transform:scale(.2);
+	   opacity:0;
+	   }
+	   
+	   70%{
+		   transform:scale(1.15); 
+	   }
+	   
+	   100%{ 
+		   transform:scale(1);
+		   opacity:1;
+		   box-shadow:0 8px 18px rgba(91,117,84,.18); 
+	   }
+}
+    @keyframes texto{ from{
+		opacity:0; 
+		transform:translateX(20px); 
+		}
+		
+		to{ opacity:1; 
+			transform:translateX(0);
+		}
+    } 
+   /* UL */
+
+    .vol-text ul{
+		padding-left:22px; 
+   }
+    .vol-text li{ 
+		margin-bottom:14px;
+		line-height:1.65;
+		color:#42573F;
+   } 
+
+ /* ICONOS DE QUÉ OFRECEMOS */
+.icono-circulo{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    background:#5B7554;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-shrink:0;
+
+    opacity:0;
+    transform:scale(.2);
+
+}
+
+.icono-circulo img{
+
+    width:32px;
+    height:32px;
+
+    object-fit:contain;
+
+}
+    /* ANIMACION */ 
+
+.vol-item.active .icono-circulo{
+
+    animation:pop .45s ease forwards;
+
+}
+
+   /* BOTON */ 
+    .btn-formulario{
+		display:inline-block;
+		margin-top:35px; 
+		padding:12px 28px;
+		border-radius:40px;
+		background:#9A585F; 
+		color:#fff;
+		text-decoration:none;
+		font-weight:700;
+		transition:.35s; 
+   } 
+.btn-formulario:hover{
+	background:#80464d;
+	transform:translateY(-3px);
+}
+
+
+/* INFORMACIÓN MÓVIL */ 
+
+@media (max-width:768px){
+
+    .voluntariado-info{
+
+        margin:70px auto;
+        padding:0 7%;
+
+    }
+
+    .vol-row,
+    .vol-row.reverse{
+
+        grid-template-columns:1fr;
+        gap:35px;
+
+        margin-bottom:80px;
+
+    }
+
+    .vol-img{
+
+        text-align:center;
+
+    }
+
+    .foto{
+
+        width:100%;
+        max-width:320px;
+
+        margin:0 auto;
+
+    }
+
+    .vol-titulo{
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        gap:15px;
+
+        margin-bottom:25px;
+
+    }
+
+    .vol-titulo h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .vol-item{
+
+        gap:15px;
+
+        margin-bottom:18px;
+
+    }
+
+    .numero,
+    .icono-circulo{
+
+        width:36px;
+        height:36px;
+
+        flex-shrink:0;
+
+    }
+
+    .numero img,
+    .icono-circulo img{
+
+        width:18px;
+        height:18px;
+
+    }
+
+    .vol-item p{
+
+        font-size:.95rem;
+        line-height:1.6;
+
+    }
+
+    .btn-formulario{
+
+        display:block;
+        width:max-content;
+
+        margin:35px auto 0;
+
+    }
+
+}
+
+
+/* FOOTER STYLES */
+.footer-wave {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin-bottom: -80px;
+  transform: scaleY(-1);
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  background: #5B7554;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 45px 50px 25px;
+  font-family: Roboto, sans-serif;
+  padding-top: 100px;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+  gap: 30px;
+  flex: 1;
+}
+
+.footer-logo {
+  width: 100px;
+  height: auto;
+}
+
+.footer-info p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 2px 0;
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.footer-info i {
+  flex-shrink: 0;
+  width: 16px;
+  margin-right: 6px;
+}
+
+.footer-info span {
+    display: inline-block;
+    text-align: left;
+}
+
+.footer-right {
+  text-align: center;
+  margin-right: 60px;
+}
+
+.footer-message {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.footer-btn {
+  background: #3E5644;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.footer-btn:hover {
+  background: #ffffff;
+  color: #5B7554;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+/* FOOTER RESPONSIVE */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 25px 30px;
+  }
+
+  .footer-wave {
+    height: 50px;
+    margin-bottom: -40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 20px;
+    text-align: center;
+	  align-items: center;
+  }
+	
+	.footer-info {
+    display: inline-block;
+		text-align: left;
+		margin: 0 auto;
+		}
+
+  .footer-info p {
+    justify-content: flex-start;
+    text-align: left;
+	  margin: 6px 0;
+  }
+
+  .footer-right {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .footer-btn {
+    width: 220px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 90px;
+  }
+
+  .footer-message {
+    font-size: 16px;
+  }
+}
+/* MISIÓN Y VISIÓN IMAGENES Y TEXTO */
+
+@media (min-width: 769px) {
+
+    /* MISIÓN (imagen izquierda) */
+    .mv-row:not(.mv-row-reverse) img {
+        margin-left: -180px;
+    }
+
+    
+     .mv-row:not(.mv-row-reverse) .mv-text {
+        transform: translateX(130px);
+    }
+
+    /* VISIÓN (imagen derecha) */
+    .mv-row-reverse img {
+        margin-right: -150px;
+    }
+
+   
+    .mv-row-reverse .mv-text {
+     transform: translateX(-100px);
+    }
+}
+/* HOVER Y FEEDBACK TÁCTIL EN EL MENÚ MÓVIL */
+@media (max-width: 768px) {
+
+    /* Color al pasar el cursor (útil en tablets y algunos navegadores móviles) */
+    .menu a:hover,
+    .menu a:focus,
+    .menu a:active {
+        color: #7F9B77 !important;   /* Verde más claro */
+        background-color: #F3F7F1;   /* Fondo muy suave opcional */
+        border-radius: 8px;
+    }
+}
+   
+
