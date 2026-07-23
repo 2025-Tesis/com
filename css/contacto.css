@@ -693,9 +693,140 @@ body{
 
 .contacto-redes img:hover{
 
-    transform:scale(1.08);
+/*=================================
+        MODAL CONTACTO
+==================================*/
+
+.modal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9999;
 
 }
+
+.modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-contenido{
+
+    width:90%;
+    max-width:420px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    animation:subir .35s ease;
+
+}
+
+.modal-check{
+
+    width:80px;
+    height:80px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:#5B7554;
+
+    color:#fff;
+
+    font-size:2.5rem;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.modal-contenido h2{
+
+    color:#42573F;
+
+    margin-bottom:18px;
+
+}
+
+.modal-contenido p{
+
+    color:#42573F;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+
+}
+
+.modal-contenido button{
+
+    background:#9A585F;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:40px;
+
+    padding:14px 35px;
+
+    cursor:pointer;
+
+}
+
+@keyframes subir{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}    transform:scale(1.08);
+
+}
+
 
 /*=================================
       CONTACTO RESPONSIVE
@@ -774,7 +905,7 @@ body{
         margin:60px auto 90px;
 
     }
-	}
+	
 	/*=================================
         MODAL RESPONSIVE
 ==================================*/
@@ -820,6 +951,7 @@ body{
     padding:14px;
 
 }
+	}
 
 
 
