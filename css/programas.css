@@ -467,7 +467,7 @@ body{
 
     .hero-programas .hero-text{
         width: 100%;
-    max-width: 420px;
+    max-width: 425px;
     margin: 0;
     transform: translateX(-15px);
     }
@@ -484,7 +484,7 @@ body{
 
     .hero-programas .hero-text p{
         color:  #FFFFFF;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         line-height: 1.8;
         margin-bottom: 30px;
         text-align: left;
