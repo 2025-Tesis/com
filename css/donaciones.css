@@ -415,24 +415,52 @@ body{
 
 .cuenta-numero{
 
-    font-size:1.5rem;
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#D2DBCF;
+
+   
+
+    border-radius:14px;
+
+    padding:12px 20px;
+
+    width:fit-content;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+
+}
+
+.cuenta-numero span{
 
     color:#42573F;
 
-    font-weight:700;
+    font-size:1.1rem;
 
-    margin:0;
-    
-	
+    line-height:1.4;
+
 }
 
 .cuenta-numero strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:1.45rem;
 
     font-weight:800;
 
     letter-spacing:1px;
 
+    color:#5B7554;
+
 }
+
 
 /* ==========================
         BOTÓN DONAR
@@ -576,10 +604,26 @@ body{
 
 .cuenta-numero{
 
-    font-size:1.1rem;
-	text-align:center;
+    width:100%;
+
+    padding:16px;
 
 }
+
+
+.cuenta-numero span{
+
+    font-size:1rem;
+	text-align: center !important;
+
+}
+
+.cuenta-numero strong{
+
+    font-size:1.2rem;
+	text-align:  center !important;
+
+	}
 
     /* BOTÓN */
 
