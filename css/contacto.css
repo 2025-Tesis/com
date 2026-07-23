@@ -692,6 +692,10 @@ body{
 }
 
 .contacto-redes img:hover{
+	transform:scale(1.08);
+
+}
+
 
 /*=================================
         MODAL CONTACTO
@@ -823,10 +827,7 @@ body{
 
     }
 
-}    transform:scale(1.08);
-
-}
-
+}    
 
 /*=================================
       CONTACTO RESPONSIVE
