@@ -479,7 +479,22 @@ body{
         text-align: left;
         position: relative;
     }
-	
+
+	/* LÍNEA VERDE */
+    .hero-programas .hero-text h1::after{
+        content: "";
+
+        display: block;
+
+        width: 110px;
+        height: 4px;
+
+        background-color: #ffffff;
+
+        border-radius: 50px;
+
+        margin: 18px 0 0 53px;
+    }
 	
 
     .hero-programas .hero-text p{
