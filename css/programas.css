@@ -444,7 +444,7 @@ body{
     }
 
     .hero-programas .hero-bg img{
-        content: url("../img/programa mobile.png");
+        content: url("../img/movil-programa.png");
         width: 100%;
         height: auto;
         display: block;
@@ -474,7 +474,7 @@ body{
 
     .hero-programas .hero-text h1{
         font-size: 2.3rem;
-        color: #7D444A;
+        color: #FFFF;
         margin-bottom: 20px;
         text-align: left;
         position: relative;
