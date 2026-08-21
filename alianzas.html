@@ -23,7 +23,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <body>
 	
-	<header class="header">
+	<header class="header" id="inicio">
 
     <!-- LOGO -->
     <div class="logo">
@@ -346,7 +346,36 @@ items.forEach(item => observer.observe(item));
 revealOnScroll();
 </script>
 	
+<a href="#inicio" class="btn-arriba" aria-label="Volver al inicio">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
 
+
+<script>
+
+const botonArriba = document.querySelector(".btn-arriba");
+
+window.addEventListener("scroll", function(){
+
+    if(window.scrollY > 400){
+
+        botonArriba.classList.add("mostrar");
+
+    }else{
+
+        botonArriba.classList.remove("mostrar");
+
+    }
+
+});
+
+</script>
+	
+	<!-- BOTÓN VOLVER ARRIBA -->
+
+<a href="#inicio" class="btn-arriba" aria-label="Volver al inicio">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
 
 
 	
