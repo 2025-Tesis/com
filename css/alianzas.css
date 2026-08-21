@@ -1177,3 +1177,36 @@ HERO ALIANZAS
         border-radius: 8px;
     }
 }
+
+<!-- BOTÓN VOLVER ARRIBA -->
+
+<a href="#inicio" class="btn-arriba" aria-label="Volver al inicio">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
+
+
+<script>
+
+const botonArriba = document.querySelector(".btn-arriba");
+
+window.addEventListener("scroll", function(){
+
+    if(window.scrollY > 400){
+
+        botonArriba.classList.add("mostrar");
+
+    }else{
+
+        botonArriba.classList.remove("mostrar");
+
+    }
+
+});
+
+</script>
+	
+	<!-- BOTÓN VOLVER ARRIBA -->
+
+<a href="#inicio" class="btn-arriba" aria-label="Volver al inicio">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
