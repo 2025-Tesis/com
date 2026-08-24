@@ -236,37 +236,57 @@ desarrollo sostenible.
   </div>
 </footer>
 	
-	<script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
-    // menú principal
+    // MENÚ PRINCIPAL
     menuToggle.addEventListener("click", function () {
+
         navMenu.classList.toggle("active");
-		menuToggle.classList.toggle("active"); // activa el estilo del ícono
-		
-		// Tip de accesibilidad opcional: cambia el texto del botón según el estado
-    const isOpen = navMenu.classList.contains("active");
-    menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+        menuToggle.classList.toggle("active");
+
+        const isOpen = navMenu.classList.contains("active");
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+
     });
 
-    // dropdown móvil (más seguro)
+
+    // DROPDOWN PROGRAMAS EN MÓVIL
     document.querySelectorAll(".dropdown-toggle").forEach(function (toggle) {
+
         toggle.addEventListener("click", function (e) {
 
             if (window.innerWidth <= 768) {
-                e.preventDefault();
 
                 const parent = this.parentElement;
-                parent.classList.toggle("open");
+
+                // Si el menú todavía NO está abierto
+                if (!parent.classList.contains("open")) {
+
+                    e.preventDefault();
+
+                    parent.classList.add("open");
+
+                } 
+                
+                // Si ya está abierto, NO hacemos preventDefault
+                // y el enlace lleva a programas.html
+
             }
 
         });
+
     });
 
 });
+</script>
 </script>
 	<!-- BOTÓN VOLVER ARRIBA -->
 
