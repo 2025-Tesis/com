@@ -264,7 +264,7 @@ HERO ALIANZAS
 
     position: relative;
 
-    min-height: 880px;
+    min-height: 820px;
 
     overflow: hidden;
 
@@ -272,7 +272,7 @@ HERO ALIANZAS
         to bottom,
         #D9E2D8 55%,
         #F3F6F2 85%,
-        #FFFFFF 10%
+        #FFFFFF 5%
     );
 
 }
